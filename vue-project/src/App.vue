@@ -1,15 +1,9 @@
 <script setup>
-import { ref } from 'vue'
-
-const titleClass = ref('title')
+import Headertest from './components/Test-test.vue'
+import Listtest from './components/Test-list.vue'
 </script>
 
 <template>
-  <h1 :class="titleClass">Make me red</h1>
+  <Headertest />
+  <Listtest />
 </template>
-
-<style>
-.title {
-  color: red;
-}
-</style>

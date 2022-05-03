@@ -1,17 +1,40 @@
-<script setup>
-import { reactive } from 'vue'
+<template>
+  <div id="app">
+    <ol>
+      <li v-for="(question) of users" :key=question.id>
+         <div>
+           <div>
+             <p>test</p>
+           </div>
+         </div>
+      </li>
+    </ol>
+  </div>
+</template>
 
-const myObject = reactive({
-  title: 'How to do lists in Vue',
-  author: 'Jane Doe',
-  publishedAt: '2016-04-10'
-})
+<script>
+  import usersData from "../../users.json";
+
+  export default {
+    data() {
+      return {
+        users: usersData,
+      };
+    },
+
+
+  methods: {
+     increment() {
+       this.users
+     }
+   },
+
+  mounted() {
+     console.log(`Testing ${this.users}.`)
+   }
+ }
 </script>
 
-<template>
-	<ul>
-   <li v-for="(value, key, index) in myObject">
-    {{ index }}. {{ key }}: {{ value }}
-   </li>
-  </ul>
-</template>
+<!-- <style>
+ li
+</style> -->

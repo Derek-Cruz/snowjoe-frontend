@@ -1,17 +1,22 @@
-
 <template>
   <Header :header="header" />
-  <h1>Quiz 1 - HTML/CSS/JS Practice</h1>
+
+  <h1 class="testing-h1">Quiz 1 - HTML / CSS / JS Practice</h1>
+
   <form>
     <ul>
       <li v-for="(question, index) in questions" :key="question.question" class="testing-li">
         <p class="testing-p">
-          {{ index }}. {{ question.question }}
+          {{ index + 1 }}. {{ question.question }}
         </p>
-        <div v-for="c of question.choices" :key="c" class="testing-div">
-        <input type="radio" name="choice" v-model="answer" :value="c" />
-        {{ c }}
-      </div>
+
+        <div v-for="(value, key) in question.answers" :key="key" class="testing-div">
+
+          <input type="radio" name="choice" v-model="userChoices[index]" />
+
+          {{ value }}
+
+        </div>
       </li>
     </ul>
   </form>
@@ -20,23 +25,6 @@
 <script>
 import Header from "./components/Header-quiz.vue"
 
-const questions = [
-  {
-    question: "What is American football called in England?",
-    choices: ["American football", "football", "Handball"],
-    rightAnswer: "American football",
-  },
-  {
-    question: "What is the largest country in the world?",
-    choices: ["Russia", "Canada", "United States"],
-    rightAnswer: "Russia",
-  },
-  {
-    question: "What is the 100th digit of Pi?",
-    choices: [9, 4, 7],
-    rightAnswer: 9,
-  },
-];
 export default {
   components: {
     Header
@@ -44,11 +32,21 @@ export default {
   data() {
     return {
       header: 'Quiz Application',
-      questions,
+      questions: [],
+      userChoices: [],
       score: 0,
       answer: "",
     };
   },
+  mounted() {
+    fetch('http://localhost:3001/questions')
+    .then(res => res.json())
+    .then(data => {
+      this.questions = data;
+      this.userChoices = Array.from(this.questions).fill(false);
+    })
+
+  }
 };
 </script>
 
@@ -60,6 +58,12 @@ body {
 
  ul {
    padding: 0 20px;
+ }
+
+ .testing-h1 {
+   padding-left: 20px;
+  font-size: 1.8rem;
+  font-weight: 500;
  }
 
 .testing-li {

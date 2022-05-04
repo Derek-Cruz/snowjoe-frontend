@@ -1,25 +1,26 @@
 <template>
   <Header :header="header" />
+  <div class="container">
+    <h1 class="testing-h1">Quiz 1 - Snow Joe</h1>
 
-  <h1 class="testing-h1">Quiz 1 - HTML / CSS / JS Practice</h1>
+    <form>
+      <ul>
+        <li v-for="(question, index) in questions" :key="question.question" class="testing-li ">
+          <p class="testing-p">
+            {{ index + 1 }}. {{ question.question }}
+          </p>
 
-  <form>
-    <ul>
-      <li v-for="(question, index) in questions" :key="question.question" class="testing-li">
-        <p class="testing-p">
-          {{ index + 1 }}. {{ question.question }}
-        </p>
+          <div v-for="(value, key) in question.answers" :key="key" class="testing-div">
 
-        <div v-for="(value, key) in question.answers" :key="key" class="testing-div">
+            <input type="radio" name="choice" v-model="userChoices[index]" />
 
-          <input type="radio" name="choice" v-model="userChoices[index]" />
+            {{ value }}
 
-          {{ value }}
-
-        </div>
-      </li>
-    </ul>
-  </form>
+          </div>
+        </li>
+      </ul>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -60,9 +61,13 @@ body {
    padding: 0 20px;
  }
 
+ .container {
+  margin-top: 60px;
+ }
+
  .testing-h1 {
    padding-left: 20px;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 500;
  }
 
@@ -78,7 +83,7 @@ body {
 
 .testing-p {
   padding: 0px 25px;
-      margin-top: 0;
+  margin-top: 0;
   margin-bottom: 13px;
   font-size: 1.2rem;
 }
@@ -87,5 +92,13 @@ body {
   padding: 0px 21px;
   margin-bottom: 10px;
   font-size: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    margin-top: 65px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }
 </style>

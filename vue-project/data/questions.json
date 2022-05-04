@@ -2,34 +2,36 @@
  "questions": [
     {
     "id": 1,
-    "question": "Who invented JavaScript?",
+    "question": "Where is Snow Joe headquarters?",
     "answers": {
-      "a": "Douglas Crockford",
-      "b": "Sheryl Sandberg",
-      "c": "Brendan Eich"
+      "a": "New jersey",
+      "b": "California",
+      "c": "New York",
+      "d": "Montana"
     },
-    "correctAnswer": "c"
+    "correctAnswer": "a"
   },
   {
     "id": 2,
-    "question": "Which one of these is a JavaScript package manager?",
+    "question": "When was Snow Joe Founded?",
     "answers": {
-      "a": "Node.js",
-      "b": "TypeScript",
-      "c": "npm"
+      "a": "1950",
+      "b": "2004",
+      "c": "2020",
+      "d": "2012"
     },
-    "correctAnswer": "c"
+    "correctAnswer": "b"
   },
   {
     "id": 3,
-    "question": "Which tool can you use to ensure code quality?",
+    "question": "What was the second divison created?",
     "answers": {
-      "a": "Angular",
-      "b": "jQuery",
-      "c": "RequireJS",
-      "d": "ESLint"
+      "a": "Aqua Joe",
+      "b": "Snow Joe",
+      "c": "Sun Joe",
+      "d": "Auto Joe"
     },
-    "correctAnswer": "d"
+    "correctAnswer": "c"
   }
  ]
 }

@@ -16,14 +16,17 @@
 
 <style>
   .quiz-header {
+    top: 0px;
     display: flex;
     height: 55px;
+    width: 100%;
     background-color: #860707;
+    position: fixed;
   }
 
   .quiz-text {
-    margin-left: 40px;
-    font-size: 1rem;
+    margin-left: 58px;
+    font-size: 1.2rem;
     font-family: sans-serif;
     display: flex;
     align-items: center;

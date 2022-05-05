@@ -49,7 +49,6 @@ export default {
       questions: [],
       userChoices: [],
       score: 0,
-      answer: "",
       isError: [],
       isCorrect: [],
       isWrong: [],
@@ -74,19 +73,24 @@ export default {
     },
 
     onSubmit() {
-      // Loop 1
-      // For each userChoice, check if it's null
-      // if it is, then highlight it YELLOW at that index
-
-      // Loop 2
-      // For each userChoice, check if it's right or wrong
-      // if it is right, then highlight it GREEN at that index
-      // else, highlight it RED at the index
-
-      // showResults = true
+      for (let i = 0; i < this.userChoices.length; i++) {
+        if (this.userChoices[i] === null) {
+          this.isError[i] = true
+        }
+      }
+      if (this.isError === false) {
+        for (let i = 0; i < this.userChoices.length; i++) {
+          if (this.userChoices[i] === this.questions[i].correctAnswer) {
+              this.isCorrect[i] = true
+            } else if (this.userChoices[i] !== this.questions[i].correctAnswer) {
+              this.isWrong[i] = true
+            }
+         }
+       }
+        this.showResults = true
+      }
     }
-  }
-};
+  };
 </script>
 
 <style>
@@ -146,9 +150,8 @@ body {
 
 @media only screen and (min-width: 768px) {
   .container {
-    margin-top: 65px;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 65px auto 0;
   }
 }
 </style>

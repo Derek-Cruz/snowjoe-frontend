@@ -3,22 +3,35 @@
   <div class="container">
     <h1 class="testing-h1">Quiz 1 - Snow Joe</h1>
 
-    <form>
+    <div v-if="showResults">
+      Results: 0/100
+    </div>
+
+    <form @submit.prevent="onSubmit">
       <ul>
-        <li v-for="(question, index) in questions" :key="question.question" class="testing-li ">
+        <li
+          v-for="(q, questionIndex) of questions"
+          :key="q.id"
+          :class="`testing-li ${isError[questionIndex] ? 'highlight' : ''} ${isCorrect[questionIndex] ? 'correct' : ''} ${isWrong[questionIndex] ? 'wrong' : ''}`"
+        >
+
           <p class="testing-p">
-            {{ index + 1 }}. {{ question.question }}
+            {{ questionIndex + 1 }}. {{ q.question }}
           </p>
 
-          <div v-for="(value, key) in question.answers" :key="key" class="testing-div">
+          <!-- For loop for the choices for the question -->
+          <div :for="q.id" v-for="(c, choiceIndex) of q.answers" :key="c" class="testing-div">
+            <!-- Make sure `name` is the same as `for` in the label above-->
+            <input type="radio" :name="q.id" :value="userChoices[questionIndex]" @change="updateChoice(questionIndex, choiceIndex)" />
 
-            <input type="radio" name="choice" v-model="userChoices[index]" />
-
-            {{ value }}
-
+            {{ c }}
           </div>
         </li>
       </ul>
+
+      <div>
+        <input type="submit" />
+      </div>
     </form>
   </div>
 </template>
@@ -37,6 +50,10 @@ export default {
       userChoices: [],
       score: 0,
       answer: "",
+      isError: [],
+      isCorrect: [],
+      isWrong: [],
+      showResults: false,
     };
   },
   mounted() {
@@ -44,9 +61,30 @@ export default {
     .then(res => res.json())
     .then(data => {
       this.questions = data;
-      this.userChoices = Array.from(this.questions).fill(false);
-    })
 
+      this.userChoices = Array.from(this.questions).fill(null);
+      this.isError = Array.from(this.questions).fill(false);
+      this.isCorrect = Array.from(this.questions).fill(false);
+      this.isWrong = Array.from(this.questions).fill(false);
+    })
+  },
+  methods: {
+    updateChoice(questionIndex, choiceIndex) {
+      this.userChoices[questionIndex] = choiceIndex
+    },
+
+    onSubmit() {
+      // Loop 1
+      // For each userChoice, check if it's null
+      // if it is, then highlight it YELLOW at that index
+
+      // Loop 2
+      // For each userChoice, check if it's right or wrong
+      // if it is right, then highlight it GREEN at that index
+      // else, highlight it RED at the index
+
+      // showResults = true
+    }
   }
 };
 </script>
@@ -79,6 +117,18 @@ body {
   margin-bottom: 30px;
   list-style-type: none;
   padding: 20px 0;
+}
+
+.highlight {
+  border: solid yellow 2px;
+}
+
+.correct {
+  border: solid green 2px;
+}
+
+.wrong {
+  border: solid red 2px;
 }
 
 .testing-p {

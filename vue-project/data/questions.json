@@ -3,35 +3,35 @@
     {
     "id": 1,
     "question": "Where is Snow Joe headquarters?",
-    "answers": {
-      "a": "New jersey",
-      "b": "California",
-      "c": "New York",
-      "d": "Montana"
-    },
-    "correctAnswer": "a"
+    "answers": [
+      "New jersey",
+      "California",
+      "New York",
+      "Montana"
+    ],
+    "correctAnswer": 0
   },
   {
     "id": 2,
     "question": "When was Snow Joe Founded?",
-    "answers": {
-      "a": "1950",
-      "b": "2004",
-      "c": "2020",
-      "d": "2012"
-    },
-    "correctAnswer": "b"
+    "answers": [
+      "1950",
+      "2004",
+      "2020",
+      "2012"
+    ],
+    "correctAnswer": 1
   },
   {
     "id": 3,
     "question": "What was the second divison created?",
-    "answers": {
-      "a": "Aqua Joe",
-      "b": "Snow Joe",
-      "c": "Sun Joe",
-      "d": "Auto Joe"
-    },
-    "correctAnswer": "c"
+    "answers": [
+      "Aqua Joe",
+      "Snow Joe",
+      "Sun Joe",
+      "Auto Joe"
+    ],
+    "correctAnswer": 2
   }
  ]
 }

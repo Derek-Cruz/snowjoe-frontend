@@ -2,7 +2,7 @@
  "questions": [
     {
     "id": 1,
-    "question": "Where is Snow Joe headquarters?",
+    "question": "Where are the Snow Joe headquarters?",
     "answers": [
       "New jersey",
       "California",
@@ -13,7 +13,7 @@
   },
   {
     "id": 2,
-    "question": "When was Snow Joe Founded?",
+    "question": "What year was Snow Joe founded?",
     "answers": [
       "1950",
       "2004",
@@ -24,7 +24,7 @@
   },
   {
     "id": 3,
-    "question": "What was the second divison created?",
+    "question": "What is the name of second divison created?",
     "answers": [
       "Aqua Joe",
       "Snow Joe",

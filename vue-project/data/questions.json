@@ -1,0 +1,37 @@
+{
+ "questions": [
+    {
+    "id": 1,
+    "question": "Where are the Snow Joe headquarters?",
+    "answers": [
+      "New jersey",
+      "California",
+      "New York",
+      "Montana"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 2,
+    "question": "What year was Snow Joe founded?",
+    "answers": [
+      "1950",
+      "2004",
+      "2020",
+      "2012"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 3,
+    "question": "What is the name of second divison created?",
+    "answers": [
+      "Aqua Joe",
+      "Snow Joe",
+      "Sun Joe",
+      "Auto Joe"
+    ],
+    "correctAnswer": 2
+  }
+ ]
+}
